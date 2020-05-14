@@ -31,3 +31,60 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 */
+
+
+
+// const menuMaker = (items) => {
+//   const menu = document.createElement('div');
+//   const list = document.createElement('ul');
+
+//   menu.appendChild(list);
+
+//   menu.classList.add('menu');
+
+//   items.forEach((element) => {
+//     const menuList = document.createElement('li')
+//     menuList.textContent = element;
+//     list.appendChild(menuList);
+//   });
+
+//   const menuImg = document.querySelector('.menu-button');
+
+//   menuImg.addEventListener('click', () => {
+//     menu.classList.toggle('menu--open');
+//   });
+
+//   return menu;
+// };
+
+// const theHeader = document.querySelector('.header');
+
+// theHeader.appendChild(menuMaker(menuItems));
+
+
+
+function menuMaker(menuArray) {
+	let menu = document.createElement('div');
+	menu.classList.add('menu');
+
+	let list = document.createElement('ul');
+	menu.appendChild(list);
+
+	menuArray.forEach((item) => {
+		let menuListItem = document.createElement('li');
+		menuListItem.textContent = item;
+		list.appendChild(menuListItem);
+	});
+
+	const menuButton = document.querySelector('.menu-button');
+	menuButton.addEventListener('click', (e) => {
+		menu.classList.toggle('menu--open');
+	});
+
+	return menu;
+}
+
+let header = document.querySelector('.header');
+header.appendChild(menuMaker(menuItems));
+
+

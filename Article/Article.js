@@ -101,7 +101,7 @@ const data = [
 
   Hint: You will need to use createElement more than once here!
 
-  Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above.
+  Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above. 
 
   Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
 
@@ -111,3 +111,69 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+
+// Step 1
+
+const articleMaker = (title, date, firstParagraph, secondParagraph, thirdParagraph) => {
+
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const aDate = document.createElement('p');
+  const articleP1 = document.createElement('p');
+  const articleP2 = document.createElement('p');
+  const articleP3 = document.createElement('p');
+  const aButton = document.createElement('span');
+  
+
+  article.appendChild(articleTitle);
+  article.appendChild(aDate);
+  article.appendChild(articleP1);
+  article.appendChild(articleP2);
+  article.appendChild(articleP3);
+  article.appendChild(aButton);
+  
+
+  article.classList.add('article');
+  aDate.classList.add('date');
+  aButton.classList.add('expandButton');
+
+  
+  articleTitle.textContent = title;
+  aDate.textContent = date;
+  articleP1.textContent = firstParagraph;
+  articleP2.textContent = secondParagraph;
+  articleP3.textContent = thirdParagraph;
+  aButton.textContent = 'CLICK HERE';
+
+
+
+
+  aButton.addEventListener('click', () => {
+    article.classList.toggle('close')
+    article.classList.toggle('article-open')
+  });
+
+  return article;
+
+  }
+
+  const component = document.querySelector('.articles');
+  
+
+  const newItem = {
+    title: 'Zombie Programmer',
+    date: 'May 13th, 2020',
+    firstParagraph: 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.',
+    secondParagraph: 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.',
+    thirdParagraph: 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.'
+    
+  }
+
+  data.push(newItem);
+
+  data.forEach(items => {
+    component.appendChild(articleMaker(items.title, items.date, items.firstParagraph, items.secondParagraph, items.thirdParagraph))
+  });
+
+
