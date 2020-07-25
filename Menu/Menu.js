@@ -34,57 +34,34 @@ let menuItems = [
 
 
 
-// const menuMaker = (items) => {
-//   const menu = document.createElement('div');
-//   const list = document.createElement('ul');
+const menuMaker = (items) => {
+  const menu = document.createElement('div');
+  const list = document.createElement('ul');
 
-//   menu.appendChild(list);
+  menu.appendChild(list);
 
-//   menu.classList.add('menu');
+  menu.classList.add('menu');
 
-//   items.forEach((element) => {
-//     const menuList = document.createElement('li')
-//     menuList.textContent = element;
-//     list.appendChild(menuList);
-//   });
+  items.forEach((element) => {
+    const menuList = document.createElement('li')
+    menuList.textContent = element;
+    list.appendChild(menuList);
+  });
 
-//   const menuImg = document.querySelector('.menu-button');
+  const menuImg = document.querySelector('.menu-button');
 
-//   menuImg.addEventListener('click', () => {
-//     menu.classList.toggle('menu--open');
-//   });
+  menuImg.addEventListener('click', () => {
+    menu.classList.toggle('menu--open');
+  });
 
-//   return menu;
-// };
+  return menu;
+};
 
-// const theHeader = document.querySelector('.header');
+const theHeader = document.querySelector('.header');
 
-// theHeader.appendChild(menuMaker(menuItems));
+theHeader.appendChild(menuMaker(menuItems));
 
 
 
-function menuMaker(menuArray) {
-	let menu = document.createElement('div');
-	menu.classList.add('menu');
-
-	let list = document.createElement('ul');
-	menu.appendChild(list);
-
-	menuArray.forEach((item) => {
-		let menuListItem = document.createElement('li');
-		menuListItem.textContent = item;
-		list.appendChild(menuListItem);
-	});
-
-	const menuButton = document.querySelector('.menu-button');
-	menuButton.addEventListener('click', (e) => {
-		menu.classList.toggle('menu--open');
-	});
-
-	return menu;
-}
-
-let header = document.querySelector('.header');
-header.appendChild(menuMaker(menuItems));
 
 
